@@ -2,12 +2,12 @@
 return array(
     'MB-useInternalUrl' => false,
     'MB-botPrefix' => '!',
-    'MB-sonarrRoot' => '',
-    'MB-sonarrProfile' => '',
-    'MB-radarrRoot' => '',
-    'MB-radarrProfile' => '',
-    'MB-lidarrRoot' => '',
-    'MB-lidarrProfile' => '',
+    'MB-sonarrRoot' => 'Select...',
+    'MB-sonarrProfile' => 'Select...',
+    'MB-radarrRoot' => 'Select...',
+    'MB-radarrProfile' => 'Select...',
+    'MB-lidarrRoot' => 'Select...',
+    'MB-lidarrProfile' => 'Select...',
     'MB-syncLoungeServerUrl' => 'https://eu1.synclounge.tv',
     'MB-syncLoungeAppUrl' => 'http://app.synclounge.tv/slweb',
     'MB-tautulliToken' => ''

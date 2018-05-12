@@ -17,7 +17,11 @@ function _mbGetSonarrProfiles() {
 	$profiles = $sonarr->getProfiles();
 	$profiles = json_decode($profiles);
 	$data = array();
-	$i = 0;
+        $i = 1;
+        $data[0] = array(
+                'name' => 'Select...',
+                'value' => 'Select...'
+        );
 	foreach ($profiles as $item) {
 		$data[$i] = array(
 			'name' => $item->name,
@@ -33,7 +37,11 @@ function _mbGetRadarrProfiles() {
         $profiles = $sonarr->getProfiles();
         $profiles = json_decode($profiles);
         $data = array();
-        $i = 0;
+        $i = 1;
+        $data[0] = array(
+                'name' => 'Select...',
+                'value' => 'Select...'
+        );
         foreach ($profiles as $item) {
                 $data[$i] = array(
                         'name' => $item->name,
@@ -49,7 +57,11 @@ function _mbGetSonarrRoot() {
 	$rootpaths = $sonarr->getRootFolder();
 	$rootpaths = json_decode($rootpaths);
 	$data = array();
-	$i = 0;
+        $i = 1;
+        $data[0] = array(
+                'name' => 'Select...',
+                'value' => 'Select...'
+        );
 	foreach ($rootpaths as $rootpath) {
 		$data[$i] = array(
 			'name' => $rootpath->path,
@@ -65,7 +77,11 @@ function _mbGetRadarrRoot() {
         $rootpaths = $sonarr->getRootFolder();
         $rootpaths = json_decode($rootpaths);
         $data = array();
-        $i = 0;
+        $i = 1;
+        $data[0] = array(
+                'name' => 'Select...',
+                'value' => 'Select...'
+        );
         foreach ($rootpaths as $rootpath) {
                 $data[$i] = array(
                         'name' => $rootpath->path,
