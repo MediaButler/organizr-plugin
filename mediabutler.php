@@ -9,7 +9,8 @@ $GLOBALS['plugins'][]['MediaButler'] = array(
     'version'=>'0.0.1',
     'image'=>'plugins/images/tabs/mediabutler.png',
     'settings'=>true,
-    'homepage'=>false
+    'homepage'=>false,
+    'license'=>'personal,business'
 );
 
 function _mbGetSonarrProfiles() {
