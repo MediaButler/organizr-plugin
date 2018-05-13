@@ -210,7 +210,11 @@ function MBGetConfig() {
 		'plex' => array(
 			'url' => $GLOBALS['plexURL'],
 			'token' => ''
-		)
+                ),
+                'emby' => array(
+			'url' => $GLOBALS['embyURL'],
+			'token' => $GLOBALS['embyToken']
+                )
 	);
 return $data;
 }
