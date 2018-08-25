@@ -91,7 +91,7 @@ function _MBbuildFormGroup(array) {
             $.each({v}, function (a, b) {
                 console.log(a);
                 console.log(b);
-                console.log(v.v);
+                console.log(v.v.length);
                 console.log('hello');
                 b.forEach(function (k) {
                     console.log(k);
