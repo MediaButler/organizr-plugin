@@ -10,9 +10,9 @@ $(document).on('click', '#MB-settings-button', function () {
         initialData = response.data;
         $('#MB-settings-items').html(buildFormGroup(initialData));
         $('.MB-TEST-CONN').click(function () {
-            message('MediaButler', ' Grabbing Settings', activeInfo.settings.notifications.position, '#FFF', 'info', '5000');
-            var url = $("input[name=MB-API-URL]").val();
-            var token = $("input[name=MB-API-TOKEN]").val();
+            message('MediaButler', ' Grabbing Settings', activeInfo.settings.notifications.position, '#FFF', 'info', '2000');
+            var url = $("[name=MB-API-URL]").val();
+            var token = $("[name=MB-API-TOKEN]").val();
             if (url == undefined && token == undefined) return;
             var newData = [];
             var pluginNames = [];
@@ -53,7 +53,6 @@ $(document).on('click', '#MB-settings-button', function () {
                                     console.log(v);
                                 }
                             });
-                            // Add buttons to pluginArray here
                             var testButton = {
                                 'type': 'button',
                                 'class': `MB-TEMP-${name}-TESTBUTTON`,
@@ -89,6 +88,7 @@ $(document).on('click', '#MB-settings-button', function () {
                             if (data.message == 'success') message('MediaButler', `Settings for ${toTitleCase(name)} PASSED`, activeInfo.settings.notifications.position, '#FFF', 'info', '5000');
                             else console.log(data);
                         }).fail(function(d) {
+                            console.log(d)
                             if (d.response == 'Unauthorized') message('MediaButler', `ERRPR: Unauthorized`, activeInfo.settings.notifications.position, '#FFF', 'error', '5000');
                             else message('MediaButler', d.responseJSON.message, activeInfo.settings.notifications.position, '#FFF', 'error', '5000');
                         });
