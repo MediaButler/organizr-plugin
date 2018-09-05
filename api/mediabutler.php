@@ -12,17 +12,6 @@ if(isset($_POST['data']['plugin'])){
                 $result['data'] = null;
             }
             break;
-        case 'MB/config/get':
-            if(qualifyRequest(1)){
-                $result['status'] = 'success';
-                $result['statusText'] = 'success';
-                $result['data'] = MBGetConfig();
-            }else{
-                $result['status'] = 'error';
-                $result['statusText'] = 'API/Token invalid or not set';
-                $result['data'] = null;
-            }
-            break;
         default:
             //DO NOTHING!!
             break;
