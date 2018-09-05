@@ -21,7 +21,6 @@ $(document).on('click', '#MB-settings-button', function () {
                 $.each(data['plugins'], function (i, v) {
                     var pluginArray = [];
                     mediaAPI('g', url + '/configure/' + v, token, null, false).success(function (config) {
-                        console.log(config);
                         const name = v;
                         if (config['schema'].length !== 0) {
                             schema[name] = config['schema'];
