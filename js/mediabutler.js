@@ -13,14 +13,15 @@ $(document).on('click', '#MB-settings-button', function () {
         $('.MB-TEST-CONN').click(function () {
             message('MediaButler', ' Grabbing Settings', activeInfo.settings.notifications.position, '#FFF', 'info', '2000');
             var url = $("[name=MB-API-URL]").val();
-            var token = $("[name=MB-API-TOKEN]").val();
-            if (url == undefined && token == undefined) return;
+            var token = local('g', 'MB-TOKEN');
+            if (url == undefined && token == null) return;
             var pluginNames = [];
             var schema = {};
-            mediaAPI('g', url + '/version', token).success(function (data) {
+            mediaAPI('g', url + '/version', token, null, false).success(function (data) {
                 $.each(data['plugins'], function (i, v) {
                     var pluginArray = [];
-                    mediaAPI('g', url + '/configure/' + v, token).success(function (config) {
+                    mediaAPI('g', url + '/configure/' + v, token, null, false).success(function (config) {
+                        console.log(config);
                         const name = v;
                         if (config['schema'].length !== 0) {
                             schema[name] = config['schema'];
@@ -302,7 +303,7 @@ function mediaAuthAPI(data) {
     });
 }
 
-function mediaAPI(type, path, token, data = null) {
+function mediaAPI(type, path, token, data = null, runasync = true) {
     console.log('MB API: Calling API: ' + path);
     switch (type) {
         case 'get':
@@ -311,7 +312,7 @@ function mediaAPI(type, path, token, data = null) {
             return $.ajax({
                 url: path,
                 method: "GET",
-                async: true,
+                async: runasync,
                 beforeSend: function (request) {
                     request.setRequestHeader("Authorization", "Bearer " + token);
                     request.setRequestHeader("MB-Client-Identifier", "353aa454-4d6f-4275-9a4f-c29a3e34966a");
@@ -324,7 +325,7 @@ function mediaAPI(type, path, token, data = null) {
             return $.ajax({
                 url: path,
                 method: "POST",
-                async: true,
+                async: runasync,
                 beforeSend: function (request) {
                     request.setRequestHeader("Authorization", "Bearer " + token);
                     request.setRequestHeader("MB-Client-Identifier", "353aa454-4d6f-4275-9a4f-c29a3e34966a");
@@ -336,7 +337,7 @@ function mediaAPI(type, path, token, data = null) {
             return $.ajax({
                 url: path,
                 method: "PUT",
-                async: true,
+                async: runasync,
                 beforeSend: function (request) {
                     request.setRequestHeader("Authorization", "Bearer " + token);
                     request.setRequestHeader("MB-Client-Identifier", "353aa454-4d6f-4275-9a4f-c29a3e34966a");
@@ -349,7 +350,7 @@ function mediaAPI(type, path, token, data = null) {
             return $.ajax({
                 url: path,
                 method: "DELETE",
-                async: true,
+                async: runasync,
                 beforeSend: function (request) {
                     request.setRequestHeader("Authorization", "Bearer " + token);
                     request.setRequestHeader("MB-Client-Identifier", "353aa454-4d6f-4275-9a4f-c29a3e34966a");

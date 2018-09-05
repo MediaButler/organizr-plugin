@@ -33,10 +33,9 @@ function MBGetSettings() {
                         'value' => $GLOBALS['MB-API-URL']
                   ),
                   array(
-                        'type' => 'password-alt',
-                        'name' => 'MB-API-TOKEN',
-                        'label' => 'Owner Token',
-                        'value' => $GLOBALS['MB-API-TOKEN']
+                        'type' => 'html',
+                        'label' => ' ',
+                        'html' => ' '
                   ),
                   array(
                         'type' => 'button',
