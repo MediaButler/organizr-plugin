@@ -18,6 +18,8 @@ $(document).on('click', '#MB-settings-button', function () {
             var pluginNames = [];
             var schema = {};
             mediaAPI('g', url + '/version', token, null, false).success(function (data) {
+                local('s', 'MB-URL', url);
+                MBload();
                 $.each(data['plugins'], function (i, v) {
                     var pluginArray = [];
                     mediaAPI('g', url + '/configure/' + v, token, null, false).success(function (config) {
