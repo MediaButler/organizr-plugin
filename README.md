@@ -1,10 +1,15 @@
 # Organizr-MediaButler
-Organizr v2 plugin to auto-configure MediaButler bot
 
-Install plugin....
+Organizr v2 plugin for the MediaButler API
 
-Make sure Organizr is fully setup before proceeding down this.
+## Installation
 
-On bot run `!bot autoconf http://organizr.url/ organizrApiKey`
+1) Install plugin
+2) Enable plugin
+3) Go to plugin settings
+4) Configure the API
 
-Watch magic happen.
+## Features
+
+Manage requests
+Add requests (Not implemented yet)
